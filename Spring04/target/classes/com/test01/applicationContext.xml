@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 객체를 만들어 -->
+	<!-- Date today= new Date(); -->
+	<bean id="today" class="java.util.Date"></bean>
+
+	<!-- 1번, 기본생성자 -->
+	<bean id="myclass" class="com.test01.MyClass" lazy-init="true"></bean>
+	<!-- id는 빈(객체)의 이름 ,class는 타입 (myclass라는 객체다, 어떤경로에 있는 어떤클래스르 쓰냐 -->
+	<!-- MyClass myclass = new MyClass(); -->
+
+	<bean id="end" class="java.util.Date">
+		<constructor-arg name="year" value="121" />
+		<constructor-arg name="month" value="6" />
+		<constructor-arg name="date" value="14" />
+	</bean>
+
+	<bean id="beanTest" class="com.test01.BeanTest">
+		<!-- 0. 기본 생성자 -->
+		<!-- constructor-arg를 사용하지 않았을 때 기본생성자를 호출 -->
+
+
+		<!-- 1.param 1개짜리 생성자 -->
+		<!-- <constructor-arg name="myclass" ref="myclass"/> -->
+		<constructor-arg ref="today" />
+		<!-- ref를 사용하여 위의 객체에서 myclass를 가져온다, ref의 들어가는 값이 객체를 땡겨와야 함, name은 생략 
+			가능 -->
+		<!-- 메인메소드가 없는 곳에서 실행하면 가장 마지막에 실행했던 메인메소드에서 실행함 -->
+
+		<!-- 2. setMyclass 호출 -->
+		<property name="myclass" ref="myclass" />
+		<!-- myclass 객체를 값으로 전달해야지 들어가짐 -->
+		<!-- property의 name은 setMyclass()로 호출하겠다, 첫글자를 대문자로 바뀐 세터를 찾아옴 / ref : 
+			myclass라는 이름의 객체를 찾아오겠다 / value : myclass문자열 값 / constructor-arg: 생성자를 찾아옴 
+			/ property: 세터를 찾아옴 id가 myclass인걸 찾아옴 -->
+
+		<!-- 3.setDate(Date date) 호출 -->
+		<!-- <property name="date" ref="today"/> -->
+		<property name="date" ref="end" />
+
+		<!-- 4.setNumber(int num) 호출 -->
+		<property name="number">
+			<value type="short">100
+			</value>
+			<!-- 묵시적 형변환 되는 상태 / 타입지정도 가능함 -->
+		</property>
+
+		<!-- 5. setArray(String[] arr) 호출 -->
+		<property name="array">
+			<array>
+				<value>박찬종</value>
+				<value>단발좌</value>
+				<value>김진현</value>
+			</array>
+		</property>
+		<!-- collectionElements : 컬렉션과 관련된 요소 -->
+		<!--  
+		Arrr:
+		An array can contain multiple inner bean, ref, collection, or value elements. 
+		여러 개의 inner bean, ref, collection, value 요소를 포함할 수 있습니다. (	배열안에 배열들어갈 수 있다.)-->
+		
+		<!-- 6.setList(List<String> list) 호출 -->
+		<property name="list">
+			<list>
+				<value>봄</value>
+				<value>여름</value>
+				<value>가을</value>
+				<value>겨울</value>
+			</list>
+		</property>
+		<!--  
+		A list can contain multiple inner bean, ref, collection, or value elements. 
+		A list can also map to an array type; the necessary conversion is performed automatically. 
+		목록에는  inner bean, ref, collection, value 가 포함될 수 있습니다. 
+		목록은 어레이 유형에 매핑될 수도 있습니다. 필요한 변환은 자동으로 수행됩니다.
+		스프링이 배열이랑 리스트는 자동으로 변환해준다(똑같다고 생각하는 듯) -->
+		
+		<!-- 7.setSet(Set<String> set) 호출 -->
+		<property name="set">
+			<set>
+				<value>1</value>
+				<value>1</value>
+				<value>2</value>
+				<value>2</value>
+				<value>3</value>
+			</set>
+		</property>
+		<!-- set: 순서가 없고, 중복 안됨 -->
+		
+		<!-- 8.setMap(Map<Integer, String> map) 호출 -->
+		<property name="map">
+			<!-- map은 비어있을 수 있다. map 안에 entry 속성안에 k:v형태로 넣어야 한다. -->
+			<map>
+				<entry>
+					<key><value>1</value></key>
+					<value>봄</value>
+				</entry>
+				<entry>
+					<key><value>2</value></key>
+					<value>여름</value>
+				</entry>
+				<entry key="3" value="가을"></entry>
+				<entry key="4" value="겨울"/>
+			</map>
+		</property>
+		
+
+		<!-- 9.setScore(List<Score> list) 호출 -->
+		<property name="score">
+			<list>
+				<!-- inner bean -->
+				<bean class="com.test01.Score">
+					<property name="name" value="박찬종"/>
+					<property name="kor" value="100" />
+					<property name="eng" value="100" />
+					<property name="math" value="100" />
+				</bean>
+				
+				<!-- ref: bean객체만들어놓고 ref로 땡겨와서 쓸 수 있음 -->
+				<ref bean="han"/>
+			</list>
+		</property>
+	
+		
+	</bean>
+	<bean id="han" class="com.test01.Score">
+		<constructor-arg value="한효주"/>
+		<constructor-arg value="100"/>
+		<constructor-arg value="100"/>
+		<constructor-arg value="100"/>
+	</bean>
+	
+	
+</beans>

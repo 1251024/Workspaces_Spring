@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 빈들이 객체 생성 -->
+	<bean id="samsong" class="com.test07.SamsongTv" lazy-init="true" />
+	<bean id="ig" class="com.test07.IgTv" />
+
+
+<!-- 
+태그 설정 모음집
+http://www.springframework.org/schema/beans에서
+사용하는 버전 선택해서 들어가면,
+사용할 수 있는 태그 속성을 확인 할 수 있음 
+빈태그가 어떻게 설정되어있는지 적어놓은 것
+namespaces에서 설정되어있어서 버전도확인 가능
+___________________________________________________________________________
+
+lazy-init="true"=>늦게 초기화해준다 (누가 부르지 않으면 일어나지 않을 거야), 부를때까지 객체 안만들어짐
+
+1.false면 객체 만들어주고
+ bean팩토리가 열릴때 싱글톤 패턴으로 객체를 만들어줄거야
+ ApplicationContext할때 xml을 읽어들여서 container(factroy)를 만들때 객체 생성
+
+2. true면 객체 안만들어줄거야
+ getBean할때 "객체를 호출하는 시점에" 객체를 생성
+ ApplicationContext할때 xml을 읽어들여서 container(factroy)를 만들어주는데, 
+ 객체를 바로 생성하는게 아니라 이시점에서 객체생성되는데 이때 안만들고 호출할때 생성
+ 
+
+3. default : 참조하는 빈즈의 속성 따라가는것, 기본적으론 false
+
+
+
+ 어떤 이유로 특정 bean 은 늦게 초기화되기를 원한다면 bean 의 attribute 중 lazy-init 을 사용하여 조정할 수 있다.
+ lazy-init 은 "true", "false", "default" 세 가지의 옵션을 가질 수 있다. 
+ default 는 spring 의 기본 동작에 맞게 bean 을 생성하며 기본 동작은 false 이다. true 로 설정할 경우 나중에 Bean 을 생성하게 된다.
+ lazy-init="true" 로 설정해도 해당 bean 이 lazy-init="false" 인 bean 에서 참조된다면 의존성 관계로 인해 초기화 프로세스에서 생성되게 된다.
+-->
+</beans>

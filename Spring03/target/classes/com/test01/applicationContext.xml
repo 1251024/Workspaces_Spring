@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="singleton" class="com.test01.AbstractTest" factory-method="getInstance">
+	</bean>
+	<!-- getInstance: heap영역에 하나만 만들어짐 -->
+	<!-- AbstractTest singleton = AbstractTest.getInstance(); <-객체가 하나만 존재하게 만드는 기술 -->
+	<!-- 싱글톤 객체는 한번 만들어지면 계속 리턴된다. -->
+</beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 홍길동, 2500000, 기술 -->
+	<bean id="hong" class="com.test03.Engineer">
+		<!-- 생성자 주입 -->
+		<constructor-arg index="0" value="홍길동"/>
+		<constructor-arg index="1" value="2500000"/>
+		<!-- 세터 주입 -->
+		<property name="dept" value="기술"></property>
+	</bean>
+	
+	<!-- 이순신, 3000000, 개발 -->
+	<bean id="lee" class="com.test03.Engineer">
+		<constructor-arg name="name" value="홍길동"/>
+		<constructor-arg name="salary" value="3000000"/>
+		<property name="dept" value="개발"></property>
+	</bean>
+	
+</beans>

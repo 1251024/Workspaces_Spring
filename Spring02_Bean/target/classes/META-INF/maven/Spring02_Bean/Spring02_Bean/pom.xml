@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- MAVEN version:빌드/배포 관리 툴(의존성 관리) 
+	 MAVEN이 jar의 필요한 version을 자동으로 다운받아 줌
+	C:\Users\user\.m2\repository\org\springframework로 자동으로 다운받아 줌 
+	인터넷이 연결안됬을때 위의 경로로 들어가서 삭제하고 다시 설치하면 됨-->
+	<modelVersion>4.0.0</modelVersion>
+	
+	<!-- project name -->
+	<groupId>Spring02_Bean</groupId>
+	<artifactId>Spring02_Bean</artifactId>
+	
+	<!-- project version -->
+	<version>0.0.1-SNAPSHOT</version>
+	
+	<!-- maven build 설정 -->
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<release>11</release>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<!-- jar 관리:MAVEN이 jar의 필요한 version을 자동으로 다운받아 줌, 
+	버전이 다르면 실행될수도 있고 안될수도 있고 버전이 다르면 상황마다 다름 프로젝트, 최신버전이라고 좋은 것 아님 호환되어야 함, 어떤걸해야 호환이 될까 찾아야함 -->
+	<dependencies>
+		<!-- spring-core -->
+			<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>5.3.5</version>
+		</dependency>
+
+		<!-- spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>5.3.5</version>
+		</dependency>
+	</dependencies>
+</project>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="woman" class="com.test03.Woman"></bean>
+	<bean id="man" class="com.test03.Man"></bean>
+	<bean id="myAspect" class="com.test03.MyAspect"></bean>
+	
+	<aop:config>
+		<!-- mayAspect 연결 할건데 -->
+		<aop:aspect ref="myAspect">
+			<!-- 
+			"execution(public * *(..))"
+			첫번째별 * 리턴타입이 뭐든 상관없다. 두번째별* 메소드이름이 뭐든지 상관없다. (..)은 파라미터의 개수가 몇개든 상관없다.
+			  -->
+			<!-- * * 이면 모든 bean에 있는 메소드를 불러오는거 -->
+			<aop:before method="before" pointcut="execution(public void com.test03.Woman.classWork())"/>
+			<aop:after method="after" pointcut="execution(public void com.test03.Woman.classWork())"/>
+		</aop:aspect>
+	</aop:config>
+	
+	
+</beans>

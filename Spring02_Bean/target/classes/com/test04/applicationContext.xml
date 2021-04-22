@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- setter를 호출해주기때문에 각각 실행됨 =>DI/IOC -->
+	<bean id= "lee" class="com.test04.Address">
+		<property name="name" value="이순신"></property>
+		<property name="addr" value="서울시 강남구"></property>
+		<property name="phone" value="010-1111-1111"></property>
+	</bean>
+	<!-- Address lee = new Address(); 타입 변수 = 값; =>Address타입 -->
+	<bean id= "hong" class="com.test04.Address">
+		<property name="name" value="홍길동"></property>
+		<property name="addr" value="경기도 수원시"></property>
+		<property name="phone" value="010-2222-2222"></property>
+	</bean>
+	
+
+</beans>

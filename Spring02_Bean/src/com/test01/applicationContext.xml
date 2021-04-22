@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- bean은 객체만드는 것, bean만 쓰면 기본생성자 호출 -->
+	<bean id="banana" class="com.test01.MessageBeanImpl"></bean>
+	<bean id="strawberry" class="com.test01.MessageBeanImpl">
+		<!-- constructor-arg: 생성자 아규먼트, 파라미터 2개짜리 생성자가 호출 됨 (개수,타입 안맞으면 오류발생) -->
+		<constructor-arg>
+			<value>딸기</value>
+		</constructor-arg>
+		<constructor-arg>
+			<value>6000</value>
+		</constructor-arg>
+	</bean>
+	<!-- constructor-arg : arg있므면 무조건 파라미터 있는 생성자로 호출함 -->
+	<bean id="kiwi" class="com.test01.MessageBeanImpl">
+		<constructor-arg value="키위"></constructor-arg>
+		<constructor-arg value="7000"></constructor-arg>
+	</bean>
+	<!-- index로 순서 정해서 호출 할 수 있음 -->
+	<bean id="cherry" class="com.test01.MessageBeanImpl">
+		<constructor-arg index="1" value="8000"></constructor-arg>
+		<constructor-arg index="0" value="체리"></constructor-arg>
+	</bean>
+
+</beans>

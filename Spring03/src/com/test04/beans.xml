@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<!-- 세터주입 :세터에 값 넣어줄거야 -->
+	<!-- class는 타입 -->
+	<bean id="lee" class="com.test04.Emp">
+		<property name="name" value="이순신" />
+		<property name="salary" value="3000000" />
+	</bean>
+	<!-- 
+	Emp lee= new Emp();
+	lee.setName("이순신");
+	lee.setSalary(2000000);
+	 -->
+
+	<bean id="hong" class="com.test04.Emp">
+		<property name="name" value="홍길동" />
+		<property name="salary" value="2500000" />
+	</bean>
+
+<!-- 
+생성자에 값을 넣어줘야하는 데 Emp타입이라서 0번지에 emp객체가 들어가야함 
+위에 emp 객체를 만들어줌, 객체를 가져올때는 만들어진 객체의 id또는 name을 걸어서 ref걸어주면 됨
+string이나 int는 value속성으로 값을 넣어주면 됨
+emp타입의 객체를 만들어줘서 레퍼런스 참조한다.
+*****객체를 가져올땐 value대신 ref를 써야한다.!!*****
+-->
+
+	<!-- 객체를 생성자에 주입하는 방법: ref -->
+	<bean id="lee-ss" class="com.test04.Developer">
+		<constructor-arg name="emp" ref="lee"/>
+		<constructor-arg name="dept" value="개발" />
+	</bean>
+
+	<bean id="hong-gd" class="com.test04.Engineer">
+		<constructor-arg index="0" ref="hong"/>
+		<constructor-arg index="1" value="기술" />
+	</bean>
+
+</beans>

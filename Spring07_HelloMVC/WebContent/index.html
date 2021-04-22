@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<a href="hello.do">hello</a>
+	<br>
+	<a href="bye.do?name=spring">bye</a>
+	
+<!-- 
+어떤컨트ㄹ롤러로 넘길지 파악하는 객체가 handlerMapping
+
+요청이 들어오면 
+리스너가 xml확인해서 서블릿 연결해줌
+디스패처 서블릿으로 hello-servlet.xml을 자동생성 연결해서
+com.hello.mvc를 읽어서 객체생성한다.
+
+handlerMapping을 통해, hello.do로 넘어온 요청이 
+Controller의 해당 method를 찾아옴
+
+@컨트롤러가 @컴포넌트보다 크기때문에 
+요청에 맞는애를 handlerMapping이 자동으로 찾아줌
+
+
+넘어가는데 핸들러매핑으로 넘어가는데
+컨트롤러로 보내고  비즈로 보내고 다오로 보내고 다오는 db랑 연결
+다오에서 받은 값 비즈로 리턴받은값 모델 객체에 담음
+MAV 모델앤드뷰로
+모델값과 뷰값을 같이 보냄
+어떤뷰를 가져와라 라고 한다음 거기에 보냄
+-->	
+</body>
+</html>
