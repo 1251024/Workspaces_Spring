@@ -27,7 +27,7 @@
 			<td colspan="2" align="right">
 				<input type="button" value="수정" onclick="location.href='updateform.do?seq=${dto.seq}'" />
 				<input type="button" value="삭제" onclick="location.href='delete.do?seq=${dto.seq}'" />
-				<input type="button" value="목록" onclick="" />
+				<input type="button" value="목록" onclick="location.href='list.do'" />
 			</td>
 		</tr>
 	</table>
