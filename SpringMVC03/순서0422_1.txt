@@ -1,0 +1,8 @@
+■ SpringMVC03 설정잡는 거 순서 (boot는 특정기능 짤때 사용가능, boot만 사용하는거 x)
+01. pom.xml : ojdbc6, mybatis, mybatis-spring, commons-dbcp, spring-orm	
+02. web.xml : applicationContext.xml, mapping(*.do), encodingFilter 
+03. /WEB-INF/spring/sqls/test.sql  
+05. src/main/resources/mybatis/myboard-mapper.xml	
+06. src/main/resources/mybatis/db.properties
+07. /WEB-INF/spring/sqls/config.xml 	
+08. applicationContext.xml, servlet-context.xml

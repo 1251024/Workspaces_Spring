@@ -1,0 +1,30 @@
+_update
+01. web.xml : 2.5 -> 4.0 (new dynamic web project -> web module설정을 4.0, deploy descriptor 생성)
+02. pom.xml
+	java					: 1.6 -> 11
+	spring-framework 		: 3.1.1.RELEASE -> 5.3.6
+	servlet-api				: 2.5 -> 4.0.1 (servlet-api -> javax.servlet-api)
+	jsp-api					: 2.1 -> 2.3.3 (jsp-api -> javax.servlet.jsp-api)
+	maven-compiler-plugin	: 1.6 -> 11 (source/target)
+03. project facets
+	dynamic web module 		: 2.5 -> 4.0
+	java					: 1.6 -> 11
+04. maven update
+
+_jdbc
+05. pom.xml : spring-jdbc, ojdbc6
+06. web.xml : applicationContext.xml, *.do, encodingFilter
+07. src/main/resources/sqls/
+	db.properties
+	jdbc.sql
+08. WEB-INF/spring/appServlet/applicationContext.xml
+09. dto, dao, biz, controller
+
+
+
+
+
+
+
+
+
