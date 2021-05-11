@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Params</title>
+</head>
+<body>
+	
+	<!-- 쿼리스트링으로 전달된 값을 가져올 때 -->
+	<h1 th:text="|Hello, ${#request.getParameter('id')}|">hello, parameter.id</h1>
+	<h1 th:text="|Hello, ${param.id}|">hello, parameter.id</h1>
+	
+	<br>
+	
+	<!-- 세션에 담긴 값 가져올 때 -->
+	<h1 th:text="${session.pw}">session.pw</h1>
+	<h1 th:text="${session['pw']}">session.pw</h1>
+	
+
+	<a href="/">index</a>
+	
+</body>
+</html>

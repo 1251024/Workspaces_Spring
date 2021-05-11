@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Detail</title>
+</head>
+<body>
+
+	<h1>DETAIL</h1>
+	
+	<table border="1" th:object="${dto}">
+		<tr>
+			<th>작성자</th>
+			<td><input type="text" name="myname" th:value="*{myname}" readonly="readonly"></td>
+		</tr>
+		<tr>
+			<th>제목</th>
+			<td><input type="text" name="mytitle" th:value="*{mytitle}" readonly="readonly"></td>
+		</tr>
+		<tr>
+			<th>내용</th>
+			<td><textarea rows="10" cols="60" name="mycontent" th:inline="text" readonly="readonly">[[*{mycontent}]]</textarea></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right">
+				<input type="button" value="수정" th:onclick="|location.href='updateform?myno=*{myno}'|">
+				<input type="button" value="삭제" th:onclick="|location.href='delete?myno=*{myno}'|">
+				<input type="button" value="목록" th:onclick="location.href='list'">
+			</td>
+		</tr>
+	</table>
+
+</body>
+</html>
